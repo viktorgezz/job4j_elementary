@@ -9,6 +9,6 @@ public class Variable {
         double bacteria = 3e+7;
         double distanceSpaceObjects = 21e+8;
         boolean workPermit = true;
-        long fileSize = 12_000_000_00;
+        long fileSize = 12_000_000_00L;
     }
 }
