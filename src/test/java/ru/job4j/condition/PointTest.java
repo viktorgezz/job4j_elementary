@@ -10,7 +10,7 @@ public class PointTest {
     static double delta = 0.01;
 
     @Test
-    public void when00To44Then5() {
+    public void when00To44Then5Dot65() {
         double expected = 5.65;
         int x1 = 0;
         int y1 = 0;
@@ -21,7 +21,7 @@ public class PointTest {
     }
 
     @Test
-    public void when14To02Then2() {
+    public void when14To02Then2Dot23() {
         double expected = 2.23;
         int x1 = 1;
         int y1 = 4;
@@ -32,7 +32,7 @@ public class PointTest {
     }
 
     @Test
-    public void when66To77Then1() {
+    public void when66To77Then1Dot41() {
         double expected = 1.41;
         int x1 = 6;
         int y1 = 6;
@@ -43,7 +43,7 @@ public class PointTest {
     }
 
     @Test
-    public void when1314to88Then7() {
+    public void when1314to88Then7Dot81() {
         double expected = 7.81;
         int x1 = 13;
         int y1 = 14;
