@@ -26,7 +26,7 @@ public class SwitchWeek {
                 nameDay = "Sunday";
                 break;
             default:
-                return "error";
+                nameDay = "error";
         }
         return nameDay;
     }
