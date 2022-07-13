@@ -23,4 +23,26 @@ public class FindLoopTest {
         int expect = -1;
         Assert.assertEquals(expect, result);
     }
+
+    @Test
+    public void whenDiapasonHasNot8ThenMinus1() {
+        int[] data = new int[]{1, 2, 3, 4};
+        int el = 8;
+        int start = 0;
+        int finish = 3;
+        int result = FindLoop.indexInRange(data, el, start, finish);
+        int expect = -1;
+        Assert.assertEquals(expect, result);
+    }
+
+    @Test
+    public void whenDiapasonHas3Then3() {
+        int[] data = new int[]{0, 1, 2, 3, 4, 5};
+        int el = 3;
+        int start = 1;
+        int finish = 4;
+        int result = FindLoop.indexInRange(data, el, start, finish);
+        int expect = 3;
+        Assert.assertEquals(expect, result);
+    }
 }
