@@ -1,93 +1,48 @@
 package ru.job4j.array;
 
-import org.junit.Assert;
 import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MatrixCheckTest {
     @Test
-    public void whenHasMonoHorizontal() {
+    public void whenDataMonoByTrueThenTrue() {
         char[][] input = {
-                {' ', ' ', ' '},
-                {'X', 'X', 'X'},
-                {' ', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
         };
-        int row = 1;
-        boolean result = MatrixCheck.monoHorizontal(input, row);
-        Assert.assertTrue(result);
+        boolean result = MatrixCheck.isWin(input);
+        assertThat(result).isTrue();
     }
 
     @Test
-    public void whenHasNotMonoHorizontal() {
+    public void whenDataNotMonoByTrueThenFalse() {
         char[][] input = {
-                {' ', 'X', ' '},
-                {'X', ' ', 'X'},
-                {' ', ' ', ' '}
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', 'X', ' ', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
         };
-        int row = 1;
-        boolean result = MatrixCheck.monoHorizontal(input, row);
-        Assert.assertFalse(result);
+        boolean result = MatrixCheck.isWin(input);
+        assertThat(result).isFalse();
     }
 
     @Test
-    public void whenHasMonoVertical() {
+    public void whenDataHMonoByTrueThenTrue() {
         char[][] input = {
-                {' ', ' ', 'X'},
-                {' ', ' ', 'X'},
-                {' ', ' ', 'X'},
+                {' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' '},
+                {'X', 'X', 'X', 'X', 'X'},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '},
         };
-        int column = 2;
-        boolean result = MatrixCheck.monoVertical(input, column);
-        Assert.assertTrue(result);
-    }
-
-    @Test
-    public void whenHasNotMonoVertical() {
-        char[][] input = {
-                {' ', ' ', 'X'},
-                {' ', 'X', 'X'},
-                {'X', ' ', 'X'},
-        };
-        int column = 0;
-        boolean result = MatrixCheck.monoVertical(input, column);
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void whenDiagonalFullX() {
-        char[][] input = {
-                {'X', ' ', ' '},
-                {' ', 'X', ' '},
-                {' ', ' ', 'X'},
-        };
-        char[] result = MatrixCheck.extractDiagonal(input);
-        char[] expected = {'X', 'X', 'X'};
-        Assert.assertArrayEquals(expected, result);
-    }
-
-    @Test
-    public void whenDiagonalFullOne() {
-        char[][] input = {
-                {'1', ' ', ' '},
-                {' ', '1', ' '},
-                {' ', ' ', '1'},
-        };
-        char[] result = MatrixCheck.extractDiagonal(input);
-        char[] expected = {'1', '1', '1'};
-        Assert.assertArrayEquals(expected, result);
-    }
-
-    @Test
-    public void whenDiagonalMix() {
-        char[][] input = {
-                {'X', ' ', ' '},
-                {' ', 'Y', ' '},
-                {' ', ' ', 'Z'},
-        };
-        char[] result = MatrixCheck.extractDiagonal(input);
-        char[] expected = {'X', 'Y', 'Z'};
-        Assert.assertArrayEquals(expected, result);
+        boolean result = MatrixCheck.isWin(input);
+        assertThat(result).isTrue();
     }
 }
